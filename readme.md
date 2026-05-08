@@ -25,7 +25,7 @@ The widget supports the following HTML input types.
 
 Requirements: Node.js, npm, WxCC Tenant, and cloud storage/cdn
 
-1. Download this project or ```git clone https://github.com/dwfinnegan/voice-trigger-workflows```
+1. Download this project or ```git clone https://github.com/shaurobi/omni-trigger-workflows```
 2. From the project directory run ```npm install```
 3. Run ```npm run serve``` to run the dev server and sandbox
    - open http://localhost:8081/ in a browser 
