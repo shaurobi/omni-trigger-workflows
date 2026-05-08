@@ -27,7 +27,7 @@ export class VoiceTriggerWorkflows extends LitElement {
     this._theme = "";
     this._mainIsOpen = false;
     this._menuIsOpen = false;
-    this._showBtn = false;
+    this._showBtn = true;
     this._config = null;
     this._selected = null;
   }
@@ -50,11 +50,11 @@ export class VoiceTriggerWorkflows extends LitElement {
 
     if (changedProperties.has('taskSelected')) {
       if (this.taskSelected == null) {
-        this._showBtn = false;
+        this._showBtn = true;
       } else if (this.taskSelected.mediaType == "telephony") {
         this._showBtn = true;
       } else {
-        this._showBtn = false;
+        this._showBtn = true;
       }
     }
 
@@ -145,12 +145,8 @@ export class VoiceTriggerWorkflows extends LitElement {
         body[param.name] = this.shadowRoot.querySelector(`[data-id-input="${id}"][name="${param.name}"]`).value;
       });
     }
-
-    let key = this.taskSelected.interactionId;
-    let task = JSON.parse(JSON.stringify(this.taskMap.get(key)));
-
-    body = { ...body, ...task };
-
+    console.log("body is "+body); 
+    
     sendTrigger(this._config[id].url, body);
     this.cancelClicked();
   }
